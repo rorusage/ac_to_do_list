@@ -1,0 +1,22 @@
+%h1 To Do Lists:
+= link_to "New Item", new_item_path, class: "btn btn-primary pull-right"
+
+%table.table.table-striped.table-condensed.table-hover
+  %thead
+    %tr
+      %td Name
+      %td Due Date
+      %td Note
+  %tbody
+    - @items.each do |item|
+      %tr
+        %td= item.name
+        %td= item.due_date
+        %td= truncate(item.note, length:15)
+        %td.btn-group
+          =link_to "Edit", edit_item_path(item)
+          =link_to "Show", item_path(item)
+          - if item.check_due_date
+            %h5{:style => "color: red"} Over Due Date, CAN'T DELETE
+          - else
+            =link_to "Delete", item_path(item), method: :delete, data: {confirm: "Are you sure?"}

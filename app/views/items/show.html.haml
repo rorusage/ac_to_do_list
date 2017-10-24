@@ -1,0 +1,6 @@
+.col-md-4.col-md-offset-4
+  %h1= @item.name
+  %h3 到期日: #{@item.due_date}
+  %p 備註: #{@item.note}
+
+  =link_to "Home", items_path

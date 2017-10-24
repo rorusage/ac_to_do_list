@@ -1,0 +1,10 @@
+= simple_form_for @item do |f|
+  .form-group
+    = f.input :name, input_html: {class: "form-control"}
+  .form-group
+    = f.input :due_date, input_html: {class: "form-control"}
+  .form-group
+    = f.input :note, input_html: {class: "form-control"}
+  = f.submit "Submit", class: "btn btn-primary", data: {disable_with: "Submitting..."}
+
+=link_to "Home", items_path
